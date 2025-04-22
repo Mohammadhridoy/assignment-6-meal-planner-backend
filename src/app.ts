@@ -4,6 +4,7 @@ import { StatusCodes } from 'http-status-codes'
 import cookieParser from 'cookie-parser'
 import globalErrorHandler from './Middlewares/globalErrorHandler'
 import authRouter from './modules/auth/auth.router'
+import customerRouter from './modules/customer/customer.router'
 
 
 const app:Application = express()
@@ -17,6 +18,7 @@ app.use(cors({origin: 'http://localhost:3000',  credentials:true}))
 
 
 app.use('/api/auth', authRouter)
+app.use('/api/customer', customerRouter)
 
 
 

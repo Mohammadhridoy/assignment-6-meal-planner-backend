@@ -4,9 +4,9 @@ import AppError from "../error/AppError"
 import { StatusCodes } from "http-status-codes"
 import jwt, { JwtPayload } from 'jsonwebtoken' 
 import config from "../config"
-// import { User } from "../modules/users/user.model"
 import verifyToken from "../utils/jwtVerifyToken"
 import { TUserRole } from "../modules/auth/auth.interface"
+import { User } from "../modules/auth/auth.model"
 
 
 const auth = (...requiredRoles: TUserRole[]) =>{

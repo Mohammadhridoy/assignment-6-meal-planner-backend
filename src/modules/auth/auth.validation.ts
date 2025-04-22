@@ -8,7 +8,14 @@ const createUserValidationSchema = z.object({
         password: z.string({required_error:"Password is required"}),
         role : z.enum(['customer', 'provider']),
         isBlocked: z.boolean().optional(), 
-        needPasswordChange: z.boolean().optional()
+        needPasswordChange: z.boolean().optional(),
+        address: z.string().optional(),
+        preferences: z.object({
+            dietaryRestrictions: z.array(z.string()).optional(),
+             preferredCuisines: z.array(z.string()).optional(),
+             portionSize:z.enum(["small", "medium", "large"]).optional()
+
+        }).optional()
     })
   
 })

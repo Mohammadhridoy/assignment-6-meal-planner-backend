@@ -4,6 +4,10 @@ import bcrypt from 'bcrypt'
 import config from "../../config";
 
 
+// const  preferenceSchema = new Schema({
+   
+// })
+
 
 const userSchema = new Schema<IUser>({
     name:{
@@ -49,6 +53,24 @@ const userSchema = new Schema<IUser>({
         type: Boolean,
         default: false
     },
+    address:{
+        type: String,
+    },
+    preferences: {
+        dietaryRestrictions:{
+            type: [String],
+            default:[]
+        },
+        preferredCuisines:{
+            type: [String],
+            default:[]
+        },
+        portionSize:{
+            type: String,
+            enum:["small", "medium", "large"],
+            default:"small"
+        }
+    }
     
 
 },{
