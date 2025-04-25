@@ -9,7 +9,7 @@ import { customerValidation } from "./customer.Validation";
 const customerRouter = Router()
 
 
-customerRouter.patch('/update', auth('customer'), validateRequst(customerValidation.updateCustomer),   customerController.updateCustomerInfo)
+customerRouter.patch('/update', auth('customer', "provider"), validateRequst(customerValidation.updateCustomer),   customerController.updateCustomerInfo)
 customerRouter.put('/updatepassword', auth('customer'), customerController.updatePassword )
 customerRouter.patch("/updatepreferences", auth('customer'), validateRequst(customerValidation.updatePreferences), customerController.updatePreferences)
 customerRouter.get("/singleuser/:email", customerController.getSingleCustomer)

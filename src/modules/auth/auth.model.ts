@@ -4,9 +4,7 @@ import bcrypt from 'bcrypt'
 import config from "../../config";
 
 
-// const  preferenceSchema = new Schema({
-   
-// })
+
 
 
 const userSchema = new Schema<IUser>({
@@ -70,7 +68,24 @@ const userSchema = new Schema<IUser>({
             enum:["small", "medium", "large"],
             default:"small"
         }
-    }
+    },
+
+    specialties: {
+        cuisinespecialties:{
+            type: [String],
+            default:[]
+        },
+        availability:{
+            type: [String],
+            default:[]
+        },
+        price:{
+            type: String,
+            default:" "
+        }
+    },
+
+
     
 
 },{
@@ -84,6 +99,9 @@ userSchema.pre('save', async function(next){
     this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_round))
     next()
 })
+
+
+
 
 
 

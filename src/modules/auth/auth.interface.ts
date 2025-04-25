@@ -1,14 +1,6 @@
 import { User_Role } from "./auth.constants";
 
 
-
-// interface preference {
-//     dietaryRestrictions:string[],
-//     preferredCuisines: string[],
-//     portionSize: "small"| "medium" | "large"
-
-// }
-
 export interface IUser {
     name: string, 
     email: string, 
@@ -18,13 +10,17 @@ export interface IUser {
     isBlocked: boolean, 
     needPasswordChange: boolean,
     address?:string,
-    preferences: {
+    preferences : {
         dietaryRestrictions:string[],
         preferredCuisines: string[],
         portionSize: "small"| "medium" | "large"
     
-    }
-    
+    },
+    specialties : {
+        cuisinespecialtie: string[]
+        availability: string[]
+        price: string
+     }
 }
 
 export type TUserRole = keyof typeof User_Role;

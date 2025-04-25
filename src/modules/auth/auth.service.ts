@@ -49,7 +49,8 @@ const loginIntoDB = async(payload: Tpayload) =>{
         name: user?.name,
         email: user?.email,
         role: user?.role,
-        phone: user?.phone
+        phone: user?.phone,
+        id:user?._id 
     }
 
 

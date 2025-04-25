@@ -111,10 +111,23 @@ type TPreferences = {
 const updatePreferencesIntoDB = async(userData:JwtPayload| undefined, payload: TPreferences) =>{
 
 
+    
+    const preferences:any ={ }
+    if(payload.dietaryRestrictions !== undefined){
+        preferences["preferences.dietaryRestrictions"] = payload.dietaryRestrictions
+    }
+    if(payload.preferredCuisines !== undefined ){
+       preferences["preferences.preferredCuisines"] = payload.preferredCuisines
+    }
+    if(payload.portionSize !== undefined) {
+       preferences["preferences.portionSize"] = payload.portionSize
+    }
+
+
 
     const result  = await User.findOneAndUpdate(
         {email: userData?.email},
-        {$set: {preferences: payload}},
+        {$set: preferences},
         {new:true, runValidators:true}
     )
 

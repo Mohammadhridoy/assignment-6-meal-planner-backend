@@ -39,7 +39,7 @@ const updatePassword = catchAsync(async(req:Request, res:Response)=>{
 const getSingleCustomer = catchAsync(async(req:Request, res:Response)=>{
     
     const email = req.params.email
-    console.log(email);
+   
 
     const result = await customerServices.getSingleCustomerIntoDB(email)
 

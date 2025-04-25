@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import globalErrorHandler from './Middlewares/globalErrorHandler'
 import authRouter from './modules/auth/auth.router'
 import customerRouter from './modules/customer/customer.router'
+import providerRouter from './modules/provider/provider.router'
 
 
 const app:Application = express()
@@ -19,6 +20,7 @@ app.use(cors({origin: 'http://localhost:3000',  credentials:true}))
 
 app.use('/api/auth', authRouter)
 app.use('/api/customer', customerRouter)
+app.use('/api/provider', providerRouter)
 
 
 
